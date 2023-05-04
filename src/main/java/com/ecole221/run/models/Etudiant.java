@@ -1,6 +1,10 @@
 package com.ecole221.run.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,15 +27,21 @@ public class Etudiant {
     private UUID id;
     private String nom;
     private String prenom;
+    private String matricule;
     private String adresse;
     private String email;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date datedenaissance;
+   /* @Min(18)
+    @Max(30)
+    private Integer age;*/
     private String phone;
     private File photo;
-    @OneToMany(mappedBy = "etudiant")
+    @JsonIgnore
+    @OneToMany(mappedBy = "etudiants")
     private List<Inscription> inscriptions;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name = "classe_id")
     private Classes classes;
 

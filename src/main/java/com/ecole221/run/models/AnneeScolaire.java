@@ -1,5 +1,13 @@
 package com.ecole221.run.models;
 
-public class AnneeScolaire {
+import jakarta.persistence.Entity;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
+
+public class AnneeScolaire {
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date datedebut;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date datefin;
 }

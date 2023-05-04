@@ -16,7 +16,6 @@ public class FiliereService {
         this.filiereRepository = filiereRepository;
     }
     public Filiere addFiliere(@RequestBody Filiere filiere){
-        /* addCommandeToDetailCommande(commande);*/
         return filiereRepository.save(filiere);
     }
 

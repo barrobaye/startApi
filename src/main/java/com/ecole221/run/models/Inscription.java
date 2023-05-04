@@ -17,15 +17,12 @@ public class Inscription {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date datedebut;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date datefin;
+    private String anneeScolaire;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date datedinscription;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "etudiant_id")
-    private Etudiant etudiant;
+    private Etudiant etudiants;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "classe_id")
     private Classes classes;

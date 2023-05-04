@@ -5,6 +5,8 @@ import com.ecole221.run.service.InscriptionService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
+
 @RequestMapping(value = "/inscription")
 @RestController
 public class InscriptionController {
@@ -14,9 +16,10 @@ public class InscriptionController {
     public InscriptionController(InscriptionService inscriptionService) {
         this.inscriptionService = inscriptionService;
     }
+
     @PostMapping
-    public Inscription save(@RequestBody Inscription inscription){
-        return inscriptionService.addInscription(inscription);
+    public Inscription save(@RequestBody Inscription inscription, UUID classe_id){
+        return inscriptionService.addInscription(inscription,classe_id);
     }
     @GetMapping
     public List<Inscription> findAll(){
